@@ -29,12 +29,12 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Tensorflow", test);
             float[][] inputString = new float[1][10];
             //inputString[0][9] = 4;
-            float[][] inputData = new float[1][10];
+            float[][] inputData = new float[1][2];
             //inputData[0][0] = 0;
             //inputData[0][1] = 1;
             Object[] inputArray = {inputString, inputData};
             Map<Integer, Object> outputMap = new HashMap<>();
-            outputMap.put(0, new float[1][4]);
+            outputMap.put(0, new float[1][61]);
             tflite.runForMultipleInputsOutputs(inputArray, outputMap);
             tflite.close();
             float[] result = ((float[][]) outputMap.get(0))[0];
